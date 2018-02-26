@@ -134,7 +134,7 @@ class VBus():
 	#-----------------------------------------------------------------------------
 	def parser_arguments(self):
 		# Argument parsing
-		parser = ArgumentParser(description='Wind+ with CCGX monitoring', add_help=False)
+		parser = ArgumentParser(description='Wind+ with CCGX monitoring', add_help=True)
 		parser.add_argument("-n", "--name", help="the D-Bus service you want me to claim",
 			                    type=str, default="com.windcharger.bornay_ttyUSB0")
 		parser.add_argument("-i", "--deviceinstance", help="the device instance you want me to be",
