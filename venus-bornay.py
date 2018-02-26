@@ -10,7 +10,7 @@
 # last update: 20/02/2018
 # Version: 1.5.2
 #---------------------------------------------------------------------------------
-softwareVersion = '1.5.2'
+softwareVersion = '1.5.3'
 
 import time # Library to use delays
 from argparse import ArgumentParser
