@@ -33,6 +33,7 @@ install_velib_python: $(VEDLIB_FILES)
 	fi
 
 install: install_velib_python install_app
+clean distclean: ;
 
 testinstall: testinstall
 	$(eval TMP := $(shell mktemp -d))
@@ -40,4 +41,4 @@ testinstall: testinstall
 	(cd $(TMP) && ./venus-bornay.py --help > /dev/null)
 	-rm -rf $(TMP)
 
-.PHONY: help install_app install_velib_python install testinstall
+.PHONY: help install_app install_velib_python install testinstall clean distclean
