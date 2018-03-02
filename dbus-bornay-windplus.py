@@ -8,9 +8,9 @@
 # Author: Carlos Reyes Guerola
 # date: 21/04/2017
 # last update: 20/02/2018
-# Version: 1.5.2
+# Version: 1.5.4
 #---------------------------------------------------------------------------------
-softwareVersion = '1.5.3'
+softwareVersion = '1.5.4'
 
 import time # Library to use delays
 from argparse import ArgumentParser
