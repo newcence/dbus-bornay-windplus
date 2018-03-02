@@ -3,7 +3,7 @@ VEDLIBDIR = $(PWD)/ext/velib_python
 INSTALL_CMD = install
 LIBDIR = $(bindir)/ext/velib_python
 
-FILES = $(SOURCEDIR)/venus-bornay.py
+FILES = $(SOURCEDIR)/dbus-bornay-windplus.py
 
 VEDLIB_FILES = \
 	$(VEDLIBDIR)/logger.py \
@@ -38,7 +38,7 @@ clean distclean: ;
 testinstall: testinstall
 	$(eval TMP := $(shell mktemp -d))
 	$(MAKE) DESTDIR=$(TMP) install
-	(cd $(TMP) && ./venus-bornay.py --help > /dev/null)
+	(cd $(TMP) && ./dbus-bornay-windplus.py --help > /dev/null)
 	-rm -rf $(TMP)
 
 .PHONY: help install_app install_velib_python install testinstall clean distclean
