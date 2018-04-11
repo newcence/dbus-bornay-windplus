@@ -7,10 +7,17 @@
 # the Bornay aerogeneradores MPPT wind+.
 # Author: Carlos Reyes Guerola
 # date: 21/04/2017
-# last update: 20/02/2018
-# Version: 1.5.4
+# last update: 10/04/2018
+# Version: 1.5.6
 #---------------------------------------------------------------------------------
-softwareVersion = '1.5.4'
+__author__ = "Carlos Reyes Guerola"
+__copyright__ = "Copyright 2018, Bornay aerogeneradores S.L.U"
+__credits__ = ["CRG@18"]
+__license__ = "Bornay aerogeneradores S.L.U"
+__version__ = "1.5.6"
+__maintainer__ = __author__
+__email__ = "bornay@bornay.com"
+
 
 import time # Library to use delays
 from argparse import ArgumentParser
@@ -160,7 +167,8 @@ class VBus():
 	#-----------------------------------------------------------------------------
 	def Init(self):
 		try:
-			self.dbusservice = VeDbusService('com.victronenergy.windcharger.bornay_ttyUSB0')
+			serial = os.path.basename(self.args.serial)
+			self.dbusservice = VeDbusService('com.victronenergy.windcharger.bornay_' + serial)
 			self.__mandatory__()
 			self.__objects_dbus__()
 		except:
@@ -180,14 +188,14 @@ class VBus():
 
 			# Create the management objects, as specified in the ccgx dbus-api document
 			self.dbusservice.add_path('/Management/ProcessName', __file__)
-			self.dbusservice.add_path('/Management/ProcessVersion', 'Version {} running on Python {}'.format(softwareVersion, sys.version))
+			self.dbusservice.add_path('/Management/ProcessVersion', 'Version {} running on Python {}'.format(__version__, sys.version))
 			self.dbusservice.add_path('/Management/Connection', 'ModBus RTU')
 
 			# Create the mandatory objects
 			self.dbusservice.add_path('/DeviceInstance', 0)
 			self.dbusservice.add_path('/ProductId', 0)
 			self.dbusservice.add_path('/ProductName', 'Bornay Wind+ MPPT')
-			self.dbusservice.add_path('/FirmwareVersion', softwareVersion)
+			self.dbusservice.add_path('/FirmwareVersion', __version__)
 			self.dbusservice.add_path('/HardwareVersion', 1.01)
 			self.dbusservice.add_path('/Connected', 1)
 		except:
@@ -284,6 +292,15 @@ class VBus():
 # Main module
 # -----------------------------------------------------------------------------
 if __name__ == '__main__':
+	log.info("dbus-bornay-windplus app") #Prints all info of app
+	log.info(__author__)
+	log.info(__copyright__)
+	log.info(__credits__)
+	log.info(__license__)
+	log.info(__version__)
+	log.info(__maintainer__)
+	log.info(__email__)
+
 	#init the different class of the script
 	s = modbus() # starts modbus class
 	ve = VBus() #init vbus class
@@ -322,4 +339,4 @@ if __name__ == '__main__':
 				s.connect_error = 0 #sets the error count to zero
 				value_modbus = s.read_result #transfer modbus data read to ve variable
 				ve.update_modbus_values(value_modbus)
-				time.sleep(s.delay) #delay to not collapse the dbus
+		time.sleep(s.delay) #delay to not collapse the dbus
