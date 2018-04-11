@@ -8,13 +8,13 @@
 # Author: Carlos Reyes Guerola
 # date: 21/04/2017
 # last update: 10/04/2018
-# Version: 1.5.6
+# Version: 1.5.7
 #---------------------------------------------------------------------------------
 __author__ = "Carlos Reyes Guerola"
 __copyright__ = "Copyright 2018, Bornay aerogeneradores S.L.U"
 __credits__ = ["CRG@18"]
 __license__ = "Bornay aerogeneradores S.L.U"
-__version__ = "1.5.6"
+__version__ = "1.5.7"
 __maintainer__ = __author__
 __email__ = "bornay@bornay.com"
 
