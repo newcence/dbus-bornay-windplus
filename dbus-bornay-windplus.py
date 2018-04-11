@@ -25,6 +25,7 @@ import os # Library to detect import libraries
 import sys # system command library
 import serial
 import serial.rs485
+from dbus.mainloop.glib import DBusGMainLoop
 
 #importing modbus complements for the rs485 communicaction
 from pymodbus.client.sync import ModbusSerialClient as ModbusClient# initialize a serial RTU client instance
@@ -167,6 +168,7 @@ class VBus():
 	#-----------------------------------------------------------------------------
 	def Init(self):
 		try:
+			DBusGMainLoop(set_as_default=True)
 			serial = os.path.basename(self.args.serial)
 			self.dbusservice = VeDbusService('com.victronenergy.windcharger.bornay_' + serial)
 			self.__mandatory__()
