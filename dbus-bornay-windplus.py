@@ -324,7 +324,7 @@ if __name__ == '__main__':
 				sys.exit("Connection lost")
 		else:
 			s.read_result = s.read_registers(5000,31) #read modbus data
-			log.error("Exit %s with %d errors" % (s.read_result, s.connect_error))
+			log.debug("Exit %s with %d errors" % (s.read_result, s.connect_error))
 			if s.read_result == "error":
 				s.connect_error = s.connect_error + 1
 				if s.connect_error == 2: #if we have a lot of errors, stops the script
