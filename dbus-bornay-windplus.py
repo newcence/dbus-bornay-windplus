@@ -152,7 +152,7 @@ class VBus():
 		self.args = parser.parse_args()
 		log.info(self.args)
 		# Init logging
-		log.basicConfig(level=(logging.DEBUG if self.args.debug else logging.INFO))
+		logging.basicConfig(level=(logging.DEBUG if self.args.debug else logging.INFO))
 		log.info(__file__ + " is starting up")
 		logLevel = {0: 'NOTSET', 10: 'DEBUG', 20: 'INFO', 30: 'WARNING', 40: 'ERROR'}
 		log.info('Loglevel set to ' + logLevel[log.getEffectiveLevel()])
