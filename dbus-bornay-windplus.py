@@ -32,9 +32,7 @@ from pymodbus.client.sync import ModbusSerialClient as ModbusClient# initialize 
 
 #logging library config
 import logging
-logging.basicConfig()
 log = logging.getLogger()
-log.setLevel(logging.DEBUG)
 
 
 # importing dbus complements
@@ -154,10 +152,10 @@ class VBus():
 		self.args = parser.parse_args()
 		log.info(self.args)
 		# Init logging
-		logging.basicConfig(level=(logging.DEBUG if self.args.debug else logging.INFO))
-		logging.info(__file__ + " is starting up")
+		log.basicConfig(level=(logging.DEBUG if self.args.debug else logging.INFO))
+		log.info(__file__ + " is starting up")
 		logLevel = {0: 'NOTSET', 10: 'DEBUG', 20: 'INFO', 30: 'WARNING', 40: 'ERROR'}
-		logging.info('Loglevel set to ' + logLevel[logging.getLogger().getEffectiveLevel()])
+		log.info('Loglevel set to ' + logLevel[log.getEffectiveLevel()])
 
 	#-----------------------------------------------------------------------------
 	# Initializes the vbus protocol.
@@ -186,7 +184,7 @@ class VBus():
 	#-----------------------------------------------------------------------------
 	def __mandatory__(self):
 		try:
-			logging.info("using device instance 0")
+			log.info("using device instance 0")
 
 			# Create the management objects, as specified in the ccgx dbus-api document
 			self.dbusservice.add_path('/Management/ProcessName', __file__)
