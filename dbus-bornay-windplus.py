@@ -14,7 +14,7 @@ __author__ = "Carlos Reyes Guerola"
 __copyright__ = "Copyright 2018, Bornay aerogeneradores S.L.U"
 __credits__ = ["CRG@18"]
 __license__ = "Bornay aerogeneradores S.L.U"
-__version__ = "1.5.7"
+__version__ = "1.5.8"
 __maintainer__ = __author__
 __email__ = "bornay@bornay.com"
 
