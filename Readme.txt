@@ -1,11 +1,6 @@
-Driver Bornay
+This driver allows communication between the Bornay Wind+ and Victron GX devices using Modbus. 
 
-Script to develop modbus rtu communication beetween Victron Color Control GX device and Bornay windturbines MPPT controllers.
+Cable used is USB from Wind+ to GX.
 
-The script tries to connect through modbus rtu to a ColorControl device with a serial port. 
-
-Unzip the ext folder to get the different libraries that are used.
-
-Version of the app: 1.5.2
-
+Tested on CCGX using 2.60 firmware and a Raspberry Pi 3B using 2.6 firmware.
 
