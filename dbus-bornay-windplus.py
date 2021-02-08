@@ -177,7 +177,7 @@ class VBus():
 			self.__mandatory__()
 			self.__objects_dbus__()
 		except:
-			log.warn("Bornay wind+ has been created before1")
+			log.warn("Bornay Windplus has been created before")
 			self.__mandatory__()
 
 
@@ -208,7 +208,7 @@ class VBus():
 			self.dbusservice.add_path('/HardwareVersion', 1.01)
 			self.dbusservice.add_path('/Connected', 1)
 		except:
-			log.warn("Mandatory Bornay wind+ has been created before")
+			log.warn("Bornay Windplus mandatory path has been created before")
 			self.__objects_dbus__()
 
 	#-----------------------------------------------------------------------------
@@ -254,7 +254,7 @@ class VBus():
 			self.dbusservice.add_path('/Flags/ChargedBattery', 0, writeable=True)
 			self.dbusservice.add_path('/Mppt/AbsortionTime', 0, writeable=True)
 		except:
-			log.warn("Bornay wind+ objects has been created before")
+			log.warn("Bornay Windplus object has been created before")
 
 	#-----------------------------------------------------------------------------
 	# Update the different registers to save in dbus.
