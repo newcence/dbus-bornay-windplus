@@ -31,3 +31,4 @@ dbusservice.add_path('/Mppt/ChargerState', 0, writeable=True)
 dbusservice.add_path('/Turbine/StimatedWind', 0, writeable=True)
 dbusservice.add_path('/Flags/ChargedBattery', 0, writeable=True)
 dbusservice.add_path('/Mppt/AbsortionTime', 0, writeable=True)
+
