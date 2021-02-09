@@ -283,7 +283,7 @@ class VBus():
 		self.dbusservice['/Turbine/RPM'] = value_modbus[16]
 		self.dbusservice['/History/Overall/MaxRPM'] = value_modbus[17]
 		self.dbusservice['/Mppt/DuttyCycle'] = value_modbus[18]
-		self.dbusservice['/Turbine/WindSpeed'] = (value_modbus[19]/100)
+		self.dbusservice['/Turbine/WindSpeed'] = (value_modbus[19]/10.0)
 		self.dbusservice['/Turbine/VDC'] = (value_modbus[20]/10.0)
 		self.dbusservice['/Dc/0/Current'] = (value_modbus[21]/10)
 		self.dbusservice['/Turbine/IBrk'] = (value_modbus[22]/10)
