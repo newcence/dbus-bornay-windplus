@@ -10,3 +10,10 @@ Init(self) amended with new service
 Mandatory objects have correct product ID, Name, Device ID
 
 Windplus routine modified; exit on error included.
+
+----------------------------------------------------------------------
+
+2.0.1
+
+New Wind+ firmware required windspeed to be /10 not /100 as previously.
+-----------------------------------------------------------------------
