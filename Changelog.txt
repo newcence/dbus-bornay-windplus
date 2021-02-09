@@ -16,4 +16,6 @@ Windplus routine modified; exit on error included.
 2.0.1
 
 New Wind+ firmware required windspeed to be /10 not /100 as previously.
+
+Product ID updated to 0xB042 to avoid product ID clash in products.h
 -----------------------------------------------------------------------
