@@ -202,7 +202,7 @@ class VBus():
 
 			# Create the mandatory objects
 			self.dbusservice.add_path('/DeviceInstance', 288)
-                        self.dbusservice.add_path('/ProductId', 0xE000)
+                        self.dbusservice.add_path('/ProductId', 0xB042)
 			self.dbusservice.add_path('/ProductName', 'Bornay Windplus')
 			self.dbusservice.add_path('/FirmwareVersion', __version__)
 			self.dbusservice.add_path('/HardwareVersion', 1.01)
