@@ -259,7 +259,7 @@ class VBus():
 	#-----------------------------------------------------------------------------
 	# Update the different registers to save in dbus.
 	# ENTRIES:
-	#   -modbus_values: Vector who contains the bornay modbus values
+	#   -modbus_values: Contains the bornay modbus values
 	# RETURNS:
 	#   Nothing
 	#-----------------------------------------------------------------------------
