@@ -8,13 +8,13 @@
 # Author: Steven Golemboski-Byrne
 # date: 21/04/2017
 # last update: 04/02/2021
-# Version: 2.0.0
+# Version: 2.0.1
 #---------------------------------------------------------------------------------
 __author__ = "Steven Golemboski-Byrne "
 __copyright__ = "Copyright 2021"
 __credits__ = ["CRG@20"]
 __license__ = "The MIT License (MIT)"
-__version__ = "2.0.0"
+__version__ = "2.0.1"
 __maintainer__ = __author__
 __email__ = "stevepbyrne@gmail.com"
 
