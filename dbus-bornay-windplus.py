@@ -7,8 +7,8 @@
 # the Bornay  MPPT wind+
 # Author: Steven Golemboski-Byrne
 # date: 21/04/2017
-# last update: 04/02/2021
-# Version: 2.0.1
+# last update: 08/12/2021
+# Version: 2.0.2
 #---------------------------------------------------------------------------------
 __author__ = "Steven Golemboski-Byrne "
 __copyright__ = "Copyright 2021"
