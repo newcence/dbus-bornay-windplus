@@ -26,8 +26,9 @@ import sys # system command library
 import serial
 import serial.rs485
 from dbus.mainloop.glib import DBusGMainLoop
+from gi.repository import GLib
 
-import gobject
+from gi.repository import GObject
 #importing modbus complements for serial comms
 from pymodbus.client.sync import ModbusSerialClient as ModbusClient
 # initialize a serial RTU client instance
@@ -135,7 +136,7 @@ class VBus():
 		self.dbusservice = None	#dbus service variable
 		self.args = ""		#extract parse argument
 		self.init_on = 0		#variable to init the vebus service
-                self.modbus = modbus
+		self.modbus = modbus
 	#-----------------------------------------------------------------------------
 	# Initializes the different arguments to add.
 	# ENTRIES:
@@ -147,11 +148,11 @@ class VBus():
 		# Argument parsing
 		parser = ArgumentParser(description='Wind+ with CCGX monitoring', add_help=True)
 		parser.add_argument("-n", "--name", help="the D-Bus service you want me to claim",
-                                            type=str, default="com.victronenergy.windcharger")
+				    type=str, default="com.victronenergy.windcharger")
 		parser.add_argument("-i", "--deviceinstance", help="the device instance you want me to be",
-			                    type=str, default="0")
+				    type=str, default="0")
 		parser.add_argument("-d", "--debug", help="set logging level to debug",
-			                    action="store_true")
+				    action="store_true")
 		parser.add_argument('-s', '--serial', default='/dev/ttyW0')
 
 		self.args = parser.parse_args()
@@ -173,7 +174,7 @@ class VBus():
 		try:
 			DBusGMainLoop(set_as_default=True)
 			serial = os.path.basename(self.args.serial)
-                        self.dbusservice = VeDbusService('com.victronenergy.windcharger.bornay_' + serial)
+			self.dbusservice = VeDbusService('com.victronenergy.windcharger.bornay_' + serial)
 			self.__mandatory__()
 			self.__objects_dbus__()
 		except:
@@ -181,9 +182,9 @@ class VBus():
 			self.__mandatory__()
 
 
-        def _update(self):
-                value_modbus = self.modbus.read_result
-                self.update_modbus_values(value_modbus)
+	def _update(self):
+		value_modbus = self.modbus.read_result
+		self.update_modbus_values(value_modbus)
 	#-----------------------------------------------------------------------------
 	# Registers the mandatory instances
 	# ENTRIES:
@@ -202,7 +203,7 @@ class VBus():
 
 			# Create the mandatory objects
 			self.dbusservice.add_path('/DeviceInstance', 288)
-                        self.dbusservice.add_path('/ProductId', 0xB042)
+			self.dbusservice.add_path('/ProductId', 0xB042)
 			self.dbusservice.add_path('/ProductName', 'Bornay Windplus')
 			self.dbusservice.add_path('/FirmwareVersion', __version__)
 			self.dbusservice.add_path('/HardwareVersion', 1.01)
@@ -351,9 +352,8 @@ if __name__ == '__main__':
 				s.connect_error = 0 #sets the error count to zero
 				value_modbus = s.read_result #transfer modbus data read to ve variable
 				ve.update_modbus_values(value_modbus)
-                gobject.timeout_add(s.delay * 1000, exit_on_error, windplus_routine)
-
-        windplus_routine()
-        mainloop = gobject.MainLoop()
-        mainloop.run()
+				gobject.timeout_add(s.delay * 1000, exit_on_error, windplus_routine)
+				windplus_routine()
+				mainloop = gobject.MainLoop()
+				mainloop.run()
 
