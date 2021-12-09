@@ -153,7 +153,7 @@ class VBus():
 				    type=str, default="0")
 		parser.add_argument("-d", "--debug", help="set logging level to debug",
 				    action="store_true")
-		parser.add_argument('-s', '--serial', default='/dev/ttyW0')
+		parser.add_argument('-s', '--serial', default='/dev/ttybornay')
 
 		self.args = parser.parse_args()
 		log.info(self.args)
